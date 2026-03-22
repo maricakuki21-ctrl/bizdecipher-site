@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
 T指标策略 - 5倍杠杆回测（实时T值，无未来函数）
-修正版：指导周期只使用当前执行时点之前可见的1m数据
+修正版：指导周期只使用当前执行时点之前可见的1m数据；
+执行周期使用上一根已完成bar确认信号，下一根开盘成交
 """
 
 import pandas as pd
@@ -123,7 +124,6 @@ def backtest_leverage(df_1m, guide_rule='1h', exec_rule='15min', params=None, le
     h = exec_df['high'].values
     l = exec_df['low'].values
     T_exec = exec_df['T_exec'].values
-    T_exec_prev = exec_df['T_exec_prev'].values
     T_guide = exec_df['T_guide'].values
 
     eq, pos, trades = 100.0, None, []
@@ -132,6 +132,7 @@ def backtest_leverage(df_1m, guide_rule='1h', exec_rule='15min', params=None, le
     liquidation = False
 
     for i in range(1, len(c)):
+        # 先处理上一时刻已持仓，在当前bar中的风险和退出
         if pos:
             if pos['s'] == 'long':
                 drawdown = (pos['entry'] - l[i]) / pos['entry']
@@ -157,10 +158,12 @@ def backtest_leverage(df_1m, guide_rule='1h', exec_rule='15min', params=None, le
             elif pos['s'] == 'short' and h[i] >= pos['sl']:
                 ep = pos['sl'] * (1 + SLIPPAGE)
 
-            if ep is None:
-                if pos['s'] == 'long' and T_exec[i] < exit_thr:
+            # 当前bar内部退出条件使用上一根bar已经确认后的持仓，当前bar可触发止损；
+            # T_exit 仍按当前bar收盘确认，下一根再执行，所以这里只在 i>=1 时判断上一根是否已满足。
+            if ep is None and i >= 1:
+                if pos['s'] == 'long' and T_exec[i - 1] < exit_thr:
                     ep = o[i] * (1 - SLIPPAGE)
-                elif pos['s'] == 'short' and T_exec[i] > -exit_thr:
+                elif pos['s'] == 'short' and T_exec[i - 1] > -exit_thr:
                     ep = o[i] * (1 + SLIPPAGE)
 
             if ep is not None:
@@ -171,17 +174,19 @@ def backtest_leverage(df_1m, guide_rule='1h', exec_rule='15min', params=None, le
                 trades.append({'pnl': net_pnl * 100, 'side': pos['s'], 'reason': 'exit'})
                 pos, le = None, i
 
-        if not pos and (i - le) > cd and not liquidation and not np.isnan(T_guide[i]):
-            if T_guide[i] > 0 and T_exec_prev[i] <= thr_l and T_exec[i] > thr_l:
-                ep = o[i] * (1 + SLIPPAGE)
-                sl_dist = stop_pct / leverage
-                sl = ep * (1 - sl_dist)
-                pos = {'s': 'long', 'entry': ep, 'sl': sl}
-            elif T_guide[i] < 0 and T_exec_prev[i] >= -thr_s and T_exec[i] < -thr_s:
-                ep = o[i] * (1 - SLIPPAGE)
-                sl_dist = stop_pct / leverage
-                sl = ep * (1 + sl_dist)
-                pos = {'s': 'short', 'entry': ep, 'sl': sl}
+        # 入场：使用上一根已完成bar(i-1)的信号，在当前bar open成交
+        if not pos and (i - le) > cd and not liquidation and i >= 1:
+            if not np.isnan(T_guide[i - 1]) and not np.isnan(T_exec[i - 1]) and not np.isnan(T_exec[i - 2] if i >= 2 else np.nan):
+                if T_guide[i - 1] > 0 and T_exec[i - 2] <= thr_l and T_exec[i - 1] > thr_l:
+                    ep = o[i] * (1 + SLIPPAGE)
+                    sl_dist = stop_pct / leverage
+                    sl = ep * (1 - sl_dist)
+                    pos = {'s': 'long', 'entry': ep, 'sl': sl}
+                elif T_guide[i - 1] < 0 and T_exec[i - 2] >= -thr_s and T_exec[i - 1] < -thr_s:
+                    ep = o[i] * (1 - SLIPPAGE)
+                    sl_dist = stop_pct / leverage
+                    sl = ep * (1 + sl_dist)
+                    pos = {'s': 'short', 'entry': ep, 'sl': sl}
 
         equity.append(eq)
         if liquidation:
