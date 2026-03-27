@@ -4,20 +4,29 @@
 
 MemeBox Telegram Bot 项目开发中 + **记忆系统升级（2026-03-27）**
 
-### 🆕 新增：稀疏记忆系统
+### 🆕 稀疏记忆系统
 - **文件**: `workspace-commander/memory_store.py`
 - **架构**: FadeMem-inspired，双层（HOT快速衰减 / WARM慢衰减）
 - **核心API**: remember() / recall() / extract() / forget() / run_decay() / stats()
 - **调用协议**: SOUL.md §7 已写入强制调用规则
-- **状态**: ✅ 跑通（SQLite本地存储，无需外部依赖）
-- **可选**: Ollama `nomic-embed-text` 做embedding（无则降级关键词）
+- **状态**: ✅ 运行中（7条记忆，avg_importance=0.77）
+- **安全**: API Key已改为环境变量 SILICONFLOW_API_KEY
 
-### 记忆调用示例
-```python
-from memory_store import remember, recall, stats
-remember("用户偏好直接沟通", importance=0.9, scope="preference")
-contexts = recall("任务关键词", limit=5)
-```
+### 🆕 技能系统重构（2026-03-27）
+- **活跃层**: ~68个（始终可见）
+- **休眠层**: 164个（disable-model-invocation: true）
+- **归档层**: workspace/ 66MB历史项目（保留不动）
+- **维护工具**: skill_scanner.py / disable_dormant.py / verify_disable.py / health_check.py
+- **索引**: SKILL-INDEX.md（技能分类总览）
+- **规则**: API Key不硬编码，陌生skill先scan再启用
+
+### 全面体检结果（2026-03-27）
+- ✅ 记忆系统正常
+- ✅ 技能启用68/禁用164
+- ✅ Bot代码+DB正常
+- ✅ 安全无Key泄露
+- ✅ workspace 66MB全保留（K线数据+项目文件）
+- ❌ 根目录56个临时脚本待清理
 
 ### 项目概览
 - **项目**：MemeBox - Telegram Meme Coin 盲盒平台

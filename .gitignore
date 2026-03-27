@@ -1,0 +1,63 @@
+# Temporary scripts
+backtest_*.py
+bt_*.py
+fetch_*.py
+energy_*.py
+ofi_*.py
+internal_force*.py
+multi_dim*.py
+four_seasons*.py
+symmetric*.py
+sym_validate*.py
+*_validate*.py
+check_*.py
+test_*.py
+compare*.py
+debug*.py
+profile*.py
+tmp*.py
+t_diagnostic*.py
+t_realtime*.py
+scan*.py
+strategy*.py
+deploy*.js
+analyze*.mjs
+kalshi*.mjs
+*.test.js
+*.test.js.map
+
+# Node
+node_modules/
+*.log
+
+# Py cache
+__pycache__/
+
+# Generated data
+memory/
+*.db
+*.db-journal
+results_*/
+
+# Wechat RPC files (local only)
+weixin*.py
+weixin*.js
+weixin*.mjs
+weixin*.ps1
+
+# Desktop
+screen.png
+screenshot.png
+
+# MemeBox bot (keep these)
+memebox_bot.py
+memebox_config.json
+memebox.db
+
+# Tool scripts (keep these)
+health_check.py
+skill_scanner.py
+disable_dormant.py
+verify_disable.py
+cleanup_plan.py
+memory_store.py

@@ -129,6 +129,61 @@ Simple/Medium → 直接执行。Complex/Epic → 展示方案等用户确认。
 
 ---
 
+## 5. 技能系统使用协议
+
+### 5.1 技能三层架构
+
+| 层级 | 数量 | 模型可见 | 触发方式 |
+|------|------|---------|---------|
+| **活跃层** | ~68个 | ✅ 始终可见 | 任务来了直接用 |
+| **休眠层** | 164个 | ❌ 禁用 | 需要时手动启用 |
+| **归档层** | workspace/ | ❌ 不加载 | 历史记录，不动用 |
+
+### 5.2 何时用什么技能
+
+**先判断任务类型，再决定用哪个skill：**
+
+| 任务类型 | 激活的技能 |
+|---------|-----------|
+| 交易/加密货币 | `okx-dex`, `ccxt`, `crypto-market-data`, `kronos`, `solana-basics` |
+| MemeBox Bot | `telegram`, `api-dev`, `docker-essentials` |
+| 记忆系统 | `memory-graph`, `self-improving` |
+| 桌面自动化 | `computer-use-windows`, `windows-gui-control`, `windows-ui-automation` |
+| 代码开发 | `api-dev`, `code-review`, `code-review-expert`, `git-essentials`, `github` |
+| 研究调研 | `browser`, `session-logs`, `arxiv-watcher` |
+| 商业分析 | `business-growth`, `crm`, `lead-generation` |
+| 量化策略 | `trading`, `quant-trading-cn`, `day-trading-skill` |
+
+### 5.3 如何启用休眠中的技能
+
+当任务需要某个休眠skill时：
+1. 找到该skill的SKILL.md路径
+2. 删除 `disable-model-invocation: true` 这一行
+3. 重启OpenClaw gateway让加载生效
+
+```bash
+# 查看所有已禁用的skill
+python ~/.openclaw/workspace-commander/disable_dormant.py
+```
+
+### 5.4 技能维护工具
+
+| 工具 | 用途 |
+|------|------|
+| `skill_scanner.py` | 扫描 ~/.openclaw/skills/ 生成分类索引 |
+| `disable_dormant.py` | 批量禁用不活跃的skill |
+| `verify_disable.py` | 验证禁用生效，确认无Key泄露 |
+| `health_check.py` | 8维度全面体检（记忆/技能/项目/配置/安全） |
+| `SKILL-INDEX.md` | 技能分类索引文件，可直接查阅 |
+
+### 5.5 绝对底线
+
+- **API Key不硬编码** → 只能用环境变量（参考 memory_store.py 改法）
+- **安全相关skill先review** → `skill_vetter` 做安全审计
+- **陌生skill先scan** → `skill_scanner.py` 分类确认用途后再启用
+
+---
+
 ## 6. 思考框架
 
 面对需要深度分析的问题，按此框架思考：

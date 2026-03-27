@@ -158,6 +158,7 @@ def forget(scope: str = None, below_importance: float = None):
 
 def run_decay():
     conn = sqlite3.connect(DB_PATH)
+    conn.row_factory = sqlite3.Row
     c = conn.cursor()
     c.execute("SELECT id, importance, last_accessed, access_count FROM memories WHERE layer = 'hot'")
     for row in c.fetchall():
@@ -184,8 +185,13 @@ def access(mem_id: str):
 def extract(raw_text: str) -> list:
     """
     用LLM从原始文本抽取记忆列表
-    调硅基流动（已有key）或降为本地规则
+    调硅基流动（需 SILICONFLOW_API_KEY 环境变量）或降为本地规则
     """
+    api_key = os.environ.get("SILICONFLOW_API_KEY", "")
+    if not api_key:
+        # 降级：返回规则匹配结果
+        return [{"content": raw_text[:200], "importance": 0.5, "scope": "global"}]
+
     try:
         import urllib.request
         prompt = f"""从以下文本中抽取关键信息，每条格式为JSON：
@@ -214,7 +220,7 @@ def extract(raw_text: str) -> list:
             "https://api.siliconflow.cn/v1/chat/completions",
             data=data,
             headers={
-                "Authorization": "Bearer sk-dlweuhtjzwydigmpbflbnsirjkzqmwnhbvappcjjvdzwzyhs",
+                "Authorization": f"Bearer {api_key}",
                 "Content-Type": "application/json"
             }
         )
