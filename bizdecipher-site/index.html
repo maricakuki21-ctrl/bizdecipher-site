@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BizDecipher helps founders decode AI business with weekly case studies, actionable SOP templates, and practical growth systems.">
+    <meta name="keywords" content="AI business, SOP templates, business case studies, founder insights, growth systems, BizDecipher">
+    <meta name="theme-color" content="#FCFCFA">
+    <title>BizDecipher — Decode AI Business Weekly</title>
+    <style>
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #FCFCFA;
+            color: #1E1E1E;
+            line-height: 1.6;
+        }
+        a { color: inherit; }
+        .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+        .nav {
+            position: sticky; top: 0; z-index: 50;
+            backdrop-filter: blur(12px);
+            background: rgba(252,252,250,0.92);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+        .nav-inner { display:flex; justify-content:space-between; align-items:center; padding: 16px 0; }
+        .brand { font-weight: 800; letter-spacing: -0.03em; text-decoration: none; font-size: 1.1rem; }
+        .brand span { color: #6C63FF; }
+        .pill { display:inline-block; padding: 7px 12px; border-radius: 999px; background: rgba(108,99,255,0.1); color:#4B44CC; font-size: .85rem; font-weight: 700; }
+        .hero { padding: 72px 0 42px; }
+        .hero-grid { display:grid; grid-template-columns: 1.15fr .85fr; gap: 44px; align-items:center; }
+        h1 { font-size: clamp(2.5rem, 6vw, 5rem); line-height: 1.02; letter-spacing: -0.06em; margin: 18px 0 18px; }
+        .lead { font-size: 1.12rem; color: rgba(30,30,30,.74); max-width: 52ch; }
+        .cta-row { display:flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+        .btn {
+            display:inline-flex; align-items:center; justify-content:center; text-decoration:none; font-weight:800;
+            padding: 14px 18px; border-radius: 12px; border: 1px solid rgba(0,0,0,.08);
+        }
+        .btn.primary { background:#1E1E1E; color:#FCFCFA; border-color:#1E1E1E; }
+        .btn.secondary { background: transparent; }
+        .mini { margin-top: 14px; color: rgba(30,30,30,.58); font-size: .92rem; }
+        .card {
+            background: #fff; border: 1px solid rgba(0,0,0,.08); border-radius: 24px; padding: 22px; box-shadow: 0 18px 50px rgba(0,0,0,.06);
+        }
+        .preview { display:grid; gap: 14px; }
+        .preview-item { border-radius: 16px; padding: 16px; background: linear-gradient(180deg, rgba(108,99,255,.08), rgba(108,99,255,.03)); border: 1px solid rgba(108,99,255,.12); }
+        .preview-item strong { display:block; margin-bottom: 4px; }
+        .grid-3 { display:grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin: 18px 0 0; }
+        .section { padding: 42px 0; }
+        h2 { font-size: clamp(1.7rem, 3vw, 2.5rem); letter-spacing: -0.04em; margin: 0 0 12px; }
+        .muted { color: rgba(30,30,30,.66); }
+        .feature, .price, .sample, .author, .faq { background:#fff; border:1px solid rgba(0,0,0,.08); border-radius: 20px; padding: 22px; }
+        .feature h3, .sample h3 { margin: 0 0 8px; }
+        .feature p, .sample p { margin: 0; color: rgba(30,30,30,.72); }
+        .kicker { color:#4B44CC; font-weight: 800; text-transform: uppercase; font-size: .78rem; letter-spacing: .12em; }
+        .feature-list { display:grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+        .quote { font-size: 1.08rem; font-weight: 700; }
+        .pricing { display:grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+        .price .tag { display:inline-block; padding: 6px 10px; border-radius: 999px; background: rgba(0,0,0,.06); font-weight: 700; font-size: .82rem; }
+        .price h3 { margin: 12px 0 4px; }
+        .amount { font-size: 2.7rem; font-weight: 900; letter-spacing: -0.06em; margin: 8px 0; }
+        .amount span { font-size: 1rem; font-weight: 700; color: rgba(30,30,30,.56); }
+        ul.clean { padding-left: 18px; color: rgba(30,30,30,.74); }
+        .highlight { border:1px solid rgba(108,99,255,.3); box-shadow: 0 14px 40px rgba(108,99,255,.10); }
+        .footer { padding: 34px 0 48px; border-top: 1px solid rgba(0,0,0,.08); color: rgba(30,30,30,.6); }
+        .two-col { display:grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+        .small { font-size: .92rem; color: rgba(30,30,30,.66); }
+        @media (max-width: 900px) {
+            .hero-grid, .grid-3, .feature-list, .pricing, .two-col { grid-template-columns: 1fr; }
+            .nav-inner { gap: 12px; }
+        }
+    </style>
+</head>
+<body>
+<nav class="nav">
+    <div class="wrap nav-inner">
+        <a class="brand" href="#top">Biz<span>Decipher</span></a>
+        <div class="pill">Anti-McKinsey · Weekly AI business decodes</div>
+    </div>
+</nav>
+
+<main id="top" class="wrap">
+    <section class="hero">
+        <div class="hero-grid">
+            <div>
+                <div class="kicker">Weekly AI business intelligence</div>
+                <h1>Decode AI Business.<br>Weekly.</h1>
+                <p class="lead">Join founders and operators who want a practical read on AI business shifts, plus ready-to-use SOP templates that turn ideas into action.</p>
+                <div class="cta-row">
+                    <a class="btn primary" href="#pricing">Subscribe Free</a>
+                    <a class="btn secondary" href="#samples">See what you get</a>
+                </div>
+                <div class="mini">No spam. Unsubscribe in one click. Powered by ConvertKit.</div>
+            </div>
+            <div class="card">
+                <div class="kicker">What you receive</div>
+                <div class="preview" style="margin-top:14px;">
+                    <div class="preview-item"><strong>Deep-dive case study</strong><span>One AI business breakdown every Friday.</span></div>
+                    <div class="preview-item"><strong>SOP templates</strong><span>Copy-paste workflows for founders, operators, and small teams.</span></div>
+                    <div class="preview-item"><strong>Swipe file</strong><span>Prompts, checklists, and structure you can use immediately.</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="two-col">
+            <div>
+                <h2>Stop paying for reports you never finish.</h2>
+                <p class="muted">BizDecipher turns noisy AI business shifts into short, useful, operator-grade notes — not consultant fluff.</p>
+            </div>
+            <div class="feature-list">
+                <div class="feature">
+                    <h3>20-minute decodes</h3>
+                    <p>Fast reads with checklists you can actually run.</p>
+                </div>
+                <div class="feature">
+                    <h3>Logic over hype</h3>
+                    <p>Clear analysis without the McKinsey price tag.</p>
+                </div>
+                <div class="feature">
+                    <h3>Workflow-first</h3>
+                    <p>Prompts, dashboards, and SOPs you can steal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="samples" class="section">
+        <div class="section-header">
+            <div class="kicker">Inside BizDecipher</div>
+            <h2>What it looks like when the noise gets decoded</h2>
+            <p class="muted">A simple, single-column experience built for reading, skimming, and acting.</p>
+        </div>
+        <div class="grid-3">
+            <div class="sample">
+                <h3>Deep dive</h3>
+                <p>How a small team reduced churn with a simple AI agent workflow.</p>
+            </div>
+            <div class="sample">
+                <h3>Tool teardown</h3>
+                <p>Claude vs. DeepSeek for market research — which prompt wins?</p>
+            </div>
+            <div class="sample">
+                <h3>Swipe file</h3>
+                <p>Copy-paste templates for founder emails, launch notes, and SOPs.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="two-col">
+            <div class="author">
+                <div class="kicker">Decoded by operators, not journalists</div>
+                <h2>Built in the trenches.</h2>
+                <p class="muted">BizDecipher is a private lab notebook for founders who want the signal, the workflow, and the next move — without paying for a giant consulting deck.</p>
+            </div>
+            <div class="author">
+                <div class="kicker">Why this wins</div>
+                <p class="quote">McKinsey-level logic. 1% of the cost. No fluff, no filler, just useful decisions.</p>
+                <p class="small">Proven strategies from global tech hubs, packaged for small teams that need speed.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="section">
+        <div class="section-header">
+            <div class="kicker">Choose your plan</div>
+            <h2>Start free. Upgrade when the signal is worth it.</h2>
+            <p class="muted">The fastest path is the one with the fewest moving parts.</p>
+        </div>
+        <div class="pricing">
+            <div class="price">
+                <span class="tag">Starter</span>
+                <h3>Free</h3>
+                <div class="amount">$0</div>
+                <p class="small">Weekly newsletter and one free template.</p>
+                <ul class="clean">
+                    <li>Weekly AI business decode</li>
+                    <li>One starter SOP template</li>
+                    <li>Free email subscription</li>
+                </ul>
+                <a class="btn secondary" href="#">Get started</a>
+            </div>
+            <div class="price highlight">
+                <span class="tag">Recommended</span>
+                <h3>Pro</h3>
+                <div class="amount">$29<span>/month</span></div>
+                <p class="small">The main product: practical SOPs for founders and operators.</p>
+                <ul class="clean">
+                    <li>Everything in Starter</li>
+                    <li>Full SOP template library</li>
+                    <li>Weekly case study deep dives</li>
+                    <li>Prompts + checklists + dashboards</li>
+                </ul>
+                <a class="btn primary" href="#">Start Pro</a>
+            </div>
+            <div class="price">
+                <span class="tag">Elite</span>
+                <h3>Team</h3>
+                <div class="amount">$79<span>/month</span></div>
+                <p class="small">For small teams that want a tighter operating system.</p>
+                <ul class="clean">
+                    <li>Everything in Pro</li>
+                    <li>Team workflows and support</li>
+                    <li>Custom implementation notes</li>
+                </ul>
+                <a class="btn secondary" href="#">Join Team</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-header">
+            <div class="kicker">FAQ</div>
+            <h2>Questions, answered fast.</h2>
+        </div>
+        <div class="two-col">
+            <div class="faq">
+                <h3>Is this about crypto?</h3>
+                <p class="muted">No. Crypto is the market backdrop, not the product. BizDecipher sells business clarity, SOPs, and practical workflows.</p>
+            </div>
+            <div class="faq">
+                <h3>How fast can we launch?</h3>
+                <p class="muted">Very fast. The fastest launch is the A plan: newsletter + SOP templates + a simple Carrd-style site.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="card" style="text-align:center;">
+            <div class="kicker">Read the first issue today</div>
+            <h2>Join the anti-McKinsey lab notebook.</h2>
+            <p class="muted">One email per week. One useful decode at a time.</p>
+            <div class="cta-row" style="justify-content:center;">
+                <a class="btn primary" href="#">Yes, decode my business</a>
+                <a class="btn secondary" href="#top">Back to top</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="wrap">
+        <div>© 2026 BizDecipher. Decoding the future of business, one weekly issue at a time.</div>
+    </div>
+</footer>
+</body>
+</html>
