@@ -1,307 +1,197 @@
-const boxThemes = {
+const boxes = {
   creator: {
-    id: "creator",
-    label: "AI Creator",
-    title: "AI Creator Box",
+    name: "AI Creator Box",
+    short: "AI Creator",
     price: "$19.90",
-    feedName: "AI Creator Box",
-    sharePrefix: "I opened the AI Creator Box on BizDecipher MoonBox",
-    drops: [
-      {
-        rarity: "Common Drop",
-        title: "Creator Starter Kit",
-        product: "Prompt pack + creator checklist + planning card",
-        value: "$14",
-        blessing: "Start with one repeatable workflow. Momentum beats a perfect idea.",
-        action: "Claim the prompt pack and save the checklist to Vault."
-      },
-      {
-        rarity: "Rare Drop",
-        title: "Creator Tool Pack",
-        product: "Notion workflow + short-video script pack + AI tool discount list",
-        value: "$24",
-        blessing: "Your edge is not one tool. It is the system you build around it.",
-        action: "Claim templates now or upgrade toward a Founder Signal Pack."
-      },
-      {
-        rarity: "Epic Drop",
-        title: "Premium Creator Bundle",
-        product: "$25 site credit + premium template bundle + launch checklist",
-        value: "$39",
-        blessing: "The market rewards people who ship small offers before they overthink.",
-        action: "Use site credit for another box or save the bundle to Vault."
-      },
-      {
-        rarity: "Legendary Drop",
-        title: "Founder Signal Pack",
-        product: "Founder opportunity report + private resource bundle + limited badge",
-        value: "$99",
-        blessing: "A good signal feels obvious only after someone else makes money from it.",
-        action: "Save the report and unlock the Founder badge in Vault."
-      }
+    left: 247,
+    pulls: [
+      { tier: "Starter pull", title: "Creator Starter Kit", desc: "Prompt pack, publishing checklist, and a one-page content plan for shipping your next offer.", value: "$14" },
+      { tier: "Rare pull", title: "Creator Tool Pack", desc: "Notion workflow, short-video script pack, and AI tool discount list.", value: "$24" },
+      { tier: "Epic pull", title: "Premium Creator Bundle", desc: "Template bundle, launch checklist, and a next-box discount card.", value: "$39" },
+      { tier: "Top pull", title: "Founder Signal Pack", desc: "Private opportunity note, creator resource bundle, and limited Founder badge.", value: "$99" }
     ]
   },
-  side: {
-    id: "side",
-    label: "Side Hustle",
-    title: "Side Hustle Box",
+  hustle: {
+    name: "Side Hustle Box",
+    short: "Side Hustle",
     price: "$19.90",
-    feedName: "Side Hustle Box",
-    sharePrefix: "I opened the Side Hustle Box on BizDecipher MoonBox",
-    drops: [
-      {
-        rarity: "Common Drop",
-        title: "Starter Hustle Card",
-        product: "One side-hustle idea + execution checklist + outreach prompt",
-        value: "$16",
-        blessing: "Do not chase every opportunity. Pick one tiny cash loop and finish it.",
-        action: "Claim the checklist and save the outreach script."
-      },
-      {
-        rarity: "Rare Drop",
-        title: "Channel Playbook",
-        product: "Niche channel list + sourcing prompt + cold-start content plan",
-        value: "$29",
-        blessing: "Demand hides inside repeated complaints. Follow the complaint trail.",
-        action: "Save the playbook or upgrade into a Founder Signal Pack."
-      },
-      {
-        rarity: "Epic Drop",
-        title: "Micro Offer Builder",
-        product: "$25 site credit + offer copy kit + pricing worksheet",
-        value: "$45",
-        blessing: "A small paid offer teaches more than ten free brainstorms.",
-        action: "Claim the worksheet and use credit for your next box."
-      }
+    left: 188,
+    pulls: [
+      { tier: "Starter pull", title: "Starter Hustle Card", desc: "One cash-loop idea, execution checklist, and first-message outreach prompt.", value: "$16" },
+      { tier: "Rare pull", title: "Channel Playbook", desc: "Niche channel list, sourcing prompt, and cold-start content plan.", value: "$29" },
+      { tier: "Epic pull", title: "Micro Offer Builder", desc: "Offer copy kit, pricing worksheet, and a next-box discount card.", value: "$45" }
     ]
   },
   founder: {
-    id: "founder",
-    label: "Founder Signal",
-    title: "Founder Signal Box",
+    name: "Founder Signal Box",
+    short: "Founder Signal",
     price: "$29.90",
-    feedName: "Founder Signal Box",
-    sharePrefix: "I opened the Founder Signal Box on BizDecipher MoonBox",
-    drops: [
-      {
-        rarity: "Rare Drop",
-        title: "Market Signal Note",
-        product: "Trend note + target user map + tool stack recommendation",
-        value: "$34",
-        blessing: "The best founder signals are boring before they become crowded.",
-        action: "Save the signal note and claim the tool stack."
-      },
-      {
-        rarity: "Epic Drop",
-        title: "Opportunity Teardown",
-        product: "Business model teardown + landing-page angle + pricing hypothesis",
-        value: "$69",
-        blessing: "A market is clearer when you can name who pays and why now.",
-        action: "Claim the teardown or upgrade toward a Legendary bundle."
-      },
-      {
-        rarity: "Legendary Drop",
-        title: "Founder Opportunity Bundle",
-        product: "Founder report + 1-on-1 teardown coupon + limited member badge",
-        value: "$149",
-        blessing: "When the signal is strong, speed becomes a feature.",
-        action: "Save the bundle and unlock the Founder badge in Vault."
-      }
+    left: 92,
+    pulls: [
+      { tier: "Rare pull", title: "Market Signal Note", desc: "Trend note, target user map, and tool stack recommendation.", value: "$34" },
+      { tier: "Epic pull", title: "Opportunity Teardown", desc: "Business model teardown, landing-page angle, and pricing hypothesis.", value: "$69" },
+      { tier: "Top pull", title: "Founder Opportunity Bundle", desc: "Founder report, 1-on-1 teardown coupon, and limited member badge.", value: "$149" }
     ]
   },
   desk: {
-    id: "desk",
-    label: "Desk Setup",
-    title: "Desk Setup Box",
+    name: "Desk Setup Box",
+    short: "Desk Setup",
     price: "$14.90",
-    feedName: "Desk Setup Box",
-    sharePrefix: "I opened the Desk Setup Box on BizDecipher MoonBox",
-    drops: [
-      {
-        rarity: "Common Drop",
-        title: "Desk Reset Kit",
-        product: "Cable organizer + focus wallpaper + productivity card",
-        value: "$12",
-        blessing: "Clear the surface, then clear the decision.",
-        action: "Claim the wallpaper and save the desk card."
-      },
-      {
-        rarity: "Rare Physical",
-        title: "Creator Desk Pack",
-        product: "Keyboard cleaning kit + sticker pack + creator template",
-        value: "$22",
-        blessing: "Better tools do not create discipline, but they remove friction.",
-        action: "Save the item to Vault for future shipping or upgrade."
-      },
-      {
-        rarity: "Epic Drop",
-        title: "Desk Setup Bundle",
-        product: "Desk accessory bundle + $15 site credit + template pack",
-        value: "$36",
-        blessing: "Your workspace should make the next useful action obvious.",
-        action: "Use site credit or save the physical bundle in Vault."
-      }
+    left: 301,
+    pulls: [
+      { tier: "Starter pull", title: "Desk Reset Kit", desc: "Cable organizer, focus wallpaper pack, and productivity card.", value: "$12" },
+      { tier: "Rare physical", title: "Creator Desk Pack", desc: "Keyboard cleaning kit, sticker pack, and creator template.", value: "$22" },
+      { tier: "Epic pull", title: "Desk Setup Bundle", desc: "Desk accessory bundle, template pack, and a next-box discount card.", value: "$36" }
     ]
   }
 };
 
-const liveDropRows = [
-  ["LunaMint", "opened AI Creator Box"],
-  ["NovaRay", "hit Founder Signal Pack"],
-  ["BoxKing", "claimed $25 site credit"],
-  ["QuietWolf", "upgraded Creator Tool Pack"],
-  ["Mika", "saved Desk Reset Kit to Vault"],
-  ["SignalFox", "pulled Market Signal Note"]
+const feedRows = [
+  ["LunaMint", "pulled Premium Creator Bundle", "$39"],
+  ["NovaRay", "hit Founder Opportunity Bundle", "$149"],
+  ["BoxKing", "claimed Creator Tool Pack", "$24"],
+  ["QuietWolf", "upgraded into Founder Signal", "$69"],
+  ["Mika", "saved Desk Setup Bundle", "$36"],
+  ["SignalFox", "opened Market Signal Note", "$34"]
 ];
 
-const openButton = document.getElementById("openBoxButton");
-const mysteryBox = document.getElementById("mysteryBox");
+const selectedName = document.getElementById("selectedName");
+const selectedPrice = document.getElementById("selectedPrice");
+const openingTitle = document.getElementById("openingTitle");
+const openingStatus = document.getElementById("openingStatus");
+const openButton = document.getElementById("openButton");
 const resultCard = document.getElementById("resultCard");
-const rarityTag = document.getElementById("rarityTag");
-const luckScore = document.getElementById("luckScore");
-const blessingTitle = document.getElementById("blessingTitle");
-const blessingText = document.getElementById("blessingText");
-const dropName = document.getElementById("dropName");
-const blessingLine = document.getElementById("blessingLine");
-const drawStatus = document.getElementById("drawStatus");
-const copyShareButton = document.getElementById("copyShareButton");
-const feedList = document.getElementById("feedList");
-const vaultMini = document.getElementById("vaultMini");
-const vaultFeedback = document.getElementById("vaultFeedback");
-const selectedBoxLabel = document.getElementById("selectedBoxLabel");
-const selectedBoxPrice = document.getElementById("selectedBoxPrice");
-const selectBoxButtons = document.querySelectorAll("[data-select-box]");
-const themeCards = document.querySelectorAll("[data-theme-card]");
-const vaultActionButtons = document.querySelectorAll("[data-vault-action]");
+const resultTier = document.getElementById("resultTier");
+const resultValue = document.getElementById("resultValue");
+const resultTitle = document.getElementById("resultTitle");
+const resultDescription = document.getElementById("resultDescription");
+const reelTrack = document.getElementById("reelTrack");
+const boxesLeft = document.getElementById("boxesLeft");
+const vaultValue = document.getElementById("vaultValue");
+const vaultHint = document.getElementById("vaultHint");
+const vaultList = document.getElementById("vaultList");
+const liveFeed = document.getElementById("liveFeed");
+const boxCards = document.querySelectorAll("[data-box-card]");
+const selectButtons = document.querySelectorAll("[data-select-box]");
+const vaultButtons = document.querySelectorAll("[data-vault-action]");
 
-let currentTheme = boxThemes.creator;
-let currentDrop = currentTheme.drops[1];
+let currentBox = boxes.creator;
+let currentKey = "creator";
+let currentPull = currentBox.pulls[1];
+let totalVault = 24;
 
-function pickDrop(theme) {
-  const drops = theme.drops;
-  const chance = Math.random();
-  if (chance > 0.965) return drops[drops.length - 1];
-  if (chance > 0.78) return drops[Math.min(2, drops.length - 1)];
-  if (chance > 0.38) return drops[Math.min(1, drops.length - 1)];
-  return drops[0];
+function valueNumber(value) {
+  return Number(String(value).replace(/[^0-9.]/g, "")) || 0;
 }
 
-function setActiveTheme(themeId) {
-  themeCards.forEach((card) => {
-    card.classList.toggle("selected", card.dataset.themeCard === themeId);
-  });
-}
-
-function renderSelectedTheme(theme) {
-  currentTheme = theme;
-  setActiveTheme(theme.id);
-  if (selectedBoxLabel) selectedBoxLabel.textContent = theme.label;
-  if (selectedBoxPrice) selectedBoxPrice.textContent = theme.price;
-  if (openButton) openButton.textContent = `Open ${theme.label} Box Demo`;
-  if (drawStatus) drawStatus.textContent = `Ready: ${theme.title} selected`;
-  if (vaultMini) {
-    const strong = vaultMini.querySelector("strong");
-    if (strong) strong.textContent = `${theme.title} drop ready for Claim / Save / Upgrade`;
-  }
-}
-
-function renderDrop(drop) {
-  if (!drop || !rarityTag || !luckScore || !blessingTitle || !blessingText || !dropName || !blessingLine) return;
-  currentDrop = drop;
-  rarityTag.textContent = drop.rarity;
-  luckScore.textContent = `Value ${drop.value}`;
-  blessingTitle.textContent = drop.title;
-  blessingText.textContent = drop.product;
-  dropName.textContent = drop.product;
-  blessingLine.textContent = drop.blessing;
-  if (vaultMini) {
-    const strong = vaultMini.querySelector("strong");
-    if (strong) strong.textContent = `${drop.title}: ${drop.action}`;
-  }
-}
-
-function openBox() {
-  if (!openButton || !mysteryBox || !resultCard || !drawStatus) return;
-  openButton.disabled = true;
-  openButton.textContent = "Opening MoonBox...";
-  drawStatus.textContent = `${currentTheme.title} payment accepted in demo · revealing drop`;
-  mysteryBox.classList.add("opening");
-  resultCard.classList.add("hidden");
-
-  window.setTimeout(() => {
-    const drop = pickDrop(currentTheme);
-    renderDrop(drop);
-    resultCard.classList.remove("hidden");
-    mysteryBox.classList.remove("opening");
-    drawStatus.textContent = `${drop.rarity} revealed · ${drop.title} entered Vault`;
-    openButton.disabled = false;
-    openButton.textContent = `Open Another ${currentTheme.label} Box`;
-    if (vaultFeedback) {
-      vaultFeedback.textContent = `${drop.title} entered Vault. Choose Claim, Save, or Upgrade to continue the commercial loop.`;
-    }
-  }, 760);
-}
-
-function selectTheme(themeId) {
-  const theme = boxThemes[themeId];
-  if (!theme) return;
-  renderSelectedTheme(theme);
-  if (resultCard) resultCard.classList.add("hidden");
-  document.getElementById("open")?.scrollIntoView({ behavior: "smooth", block: "center" });
-}
-
-async function copyShareText() {
-  if (!copyShareButton) return;
-  const text = `${currentTheme.sharePrefix} and got ${currentDrop.title}. Drop value: ${currentDrop.value}. ${currentDrop.blessing}`;
-  try {
-    await navigator.clipboard.writeText(text);
-    copyShareButton.textContent = "Copied";
-  } catch (error) {
-    copyShareButton.textContent = "Copy fallback ready";
-  }
-  window.setTimeout(() => {
-    copyShareButton.textContent = "Copy share text";
-  }, 1300);
+function pickPull(box) {
+  const roll = Math.random();
+  if (roll > 0.955) return box.pulls[box.pulls.length - 1];
+  if (roll > 0.74) return box.pulls[Math.min(2, box.pulls.length - 1)];
+  if (roll > 0.34) return box.pulls[Math.min(1, box.pulls.length - 1)];
+  return box.pulls[0];
 }
 
 function renderFeed() {
-  if (!feedList) return;
-  feedList.innerHTML = liveDropRows.map(([name, action]) => `<div><span>${name}</span><strong>${action}</strong></div>`).join("");
+  if (!liveFeed) return;
+  liveFeed.innerHTML = feedRows
+    .map(([name, action, value]) => `<div><span>${name}</span><strong>${action}</strong><em>${value}</em></div>`)
+    .join("");
+}
+
+function setSelectedBox(key) {
+  const box = boxes[key];
+  if (!box) return;
+  currentKey = key;
+  currentBox = box;
+  currentPull = box.pulls[Math.min(1, box.pulls.length - 1)];
+
+  boxCards.forEach((card) => card.classList.toggle("selected", card.dataset.boxCard === key));
+  if (selectedName) selectedName.textContent = box.name;
+  if (selectedPrice) selectedPrice.textContent = box.price;
+  if (openingTitle) openingTitle.textContent = box.name;
+  if (openingStatus) openingStatus.textContent = "Ready to open";
+  if (openButton) openButton.textContent = `Open ${box.short} Box`;
+  if (boxesLeft) boxesLeft.textContent = String(box.left);
+  if (resultCard) resultCard.classList.add("hidden");
+}
+
+function addToVault(pull) {
+  totalVault += valueNumber(pull.value);
+  if (vaultValue) vaultValue.textContent = `$${totalVault}`;
+  if (vaultHint) vaultHint.textContent = `${pull.title} added. Claim it, save it, or use it as upgrade fuel.`;
+  if (!vaultList) return;
+  const row = document.createElement("div");
+  row.innerHTML = `<span>New</span><strong>${pull.title}</strong><em>${pull.value}</em>`;
+  vaultList.prepend(row);
+  while (vaultList.children.length > 5) vaultList.removeChild(vaultList.lastElementChild);
+}
+
+function renderPull(pull) {
+  currentPull = pull;
+  if (resultTier) resultTier.textContent = pull.tier;
+  if (resultValue) resultValue.textContent = `${pull.value} value`;
+  if (resultTitle) resultTitle.textContent = pull.title;
+  if (resultDescription) resultDescription.textContent = pull.desc;
+  if (resultCard) resultCard.classList.remove("hidden");
+  addToVault(pull);
+}
+
+function openBox() {
+  if (!openButton || !openingStatus || !reelTrack) return;
+  openButton.disabled = true;
+  openButton.textContent = "Revealing...";
+  openingStatus.textContent = "Box opened · spinning reward";
+  if (resultCard) resultCard.classList.add("hidden");
+  reelTrack.classList.remove("spinning");
+  void reelTrack.offsetWidth;
+  reelTrack.classList.add("spinning");
+
+  window.setTimeout(() => {
+    const pull = pickPull(currentBox);
+    renderPull(pull);
+    currentBox.left = Math.max(0, currentBox.left - 1);
+    if (boxesLeft) boxesLeft.textContent = String(currentBox.left);
+    openingStatus.textContent = `${pull.tier} revealed · added to Vault`;
+    openButton.disabled = false;
+    openButton.textContent = `Open another ${currentBox.short} Box`;
+  }, 850);
 }
 
 function handleVaultAction(event) {
-  if (!vaultFeedback) return;
   const action = event.currentTarget.dataset.vaultAction;
-  const messages = {
-    claim: `${currentDrop.title}: Claim selected. Digital resources can be delivered immediately by email, dashboard, or Telegram bot.`,
-    save: `${currentDrop.title}: Saved to Vault. The user keeps inventory and can return later.`,
-    upgrade: `${currentDrop.title}: Upgrade selected. The drop becomes entry value toward a higher-tier resource bundle.`
+  const copy = {
+    claim: `${currentPull.title} is ready to claim. The user gets the useful file, coupon, report, or physical reward path immediately.`,
+    save: `${currentPull.title} stays in Vault. Ownership makes the collection feel real and keeps the user coming back.`,
+    upgrade: `${currentPull.title} becomes upgrade fuel. Small wins can push the user toward a higher-status bundle.`
   };
-  vaultFeedback.textContent = messages[action] || "Vault action selected.";
+  if (vaultHint) vaultHint.textContent = copy[action] || "Vault action selected.";
 }
 
 function revealOnScroll() {
-  const targets = document.querySelectorAll(".bento-card, .product-lanes article, .loop-map article, .vault-actions button, .princess-ticket, .rules-grid p, .leaderboard-list div");
+  const targets = document.querySelectorAll(".box-card, .inside-grid article, .loop-grid article, .vault-list div, .live-feed div, .final-card");
   if (!window.IntersectionObserver) return;
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.animate([
-          { opacity: 0, transform: "translateY(18px)" },
-          { opacity: 1, transform: "translateY(0)" }
-        ], { duration: 520, easing: "cubic-bezier(0.16, 1, 0.3, 1)", fill: "both" });
-        observer.unobserve(entry.target);
-      }
+      if (!entry.isIntersecting) return;
+      entry.target.animate([
+        { opacity: 0, transform: "translateY(18px)" },
+        { opacity: 1, transform: "translateY(0)" }
+      ], { duration: 520, easing: "cubic-bezier(0.16, 1, 0.3, 1)", fill: "both" });
+      observer.unobserve(entry.target);
     });
-  }, { threshold: 0.16 });
-
+  }, { threshold: 0.14 });
   targets.forEach((target) => observer.observe(target));
 }
 
+selectButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    setSelectedBox(button.dataset.selectBox);
+    document.getElementById("open")?.scrollIntoView({ behavior: "smooth", block: "center" });
+  });
+});
 openButton?.addEventListener("click", openBox);
-copyShareButton?.addEventListener("click", copyShareText);
-selectBoxButtons.forEach((button) => button.addEventListener("click", () => selectTheme(button.dataset.selectBox)));
-vaultActionButtons.forEach((button) => button.addEventListener("click", handleVaultAction));
+vaultButtons.forEach((button) => button.addEventListener("click", handleVaultAction));
 renderFeed();
-renderSelectedTheme(currentTheme);
+setSelectedBox("creator");
 revealOnScroll();
