@@ -102,7 +102,25 @@ button, a { -webkit-tap-highlight-color: transparent; }
   transition: background .22s var(--ease), color .22s var(--ease), transform .22s var(--ease);
 }
 .nav-links a:hover { color: var(--ink); background: rgba(23,19,15,.06); transform: translateY(-1px); }
-.header-cta { justify-self: end; }
+.header-actions {
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.language-toggle {
+  min-width: 62px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink);
+  background: rgba(255,255,255,.48);
+  cursor: pointer;
+  font-weight: 950;
+  transition: transform .25s var(--ease), background .25s var(--ease), border-color .25s var(--ease);
+}
+.language-toggle:hover { transform: translateY(-2px); background: rgba(255,255,255,.72); border-color: rgba(217,119,87,.34); }
+.language-toggle:active { transform: scale(.98); }
 
 .header-cta, .primary-btn, .secondary-btn, .select-box-btn, .open-btn, .result-actions button {
   border: 0;
@@ -126,6 +144,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .header-cta:hover, .primary-btn:hover, .secondary-btn:hover, .select-box-btn:hover, .open-btn:hover, .result-actions button:hover { transform: translateY(-2px); }
 .header-cta:active, .primary-btn:active, .secondary-btn:active, .select-box-btn:active, .open-btn:active, .result-actions button:active { transform: scale(.98); }
 button:focus-visible, a:focus-visible { outline: 3px solid rgba(217,119,87,.34); outline-offset: 3px; }
+.language-toggle:focus-visible { outline: 3px solid rgba(217,119,87,.34); outline-offset: 3px; }
 
 .section-shell {
   position: relative;
@@ -532,7 +551,8 @@ h3 { letter-spacing: -0.04em; }
   .section-shell { width: min(100% - 24px, 1220px); padding: 72px 0; }
   .site-header { width: calc(100% - 20px); top: 10px; }
   .brand-copy small { display: none; }
-  .header-cta { padding: 12px 14px; }
+  .header-actions { gap: 6px; }
+  .language-toggle, .header-cta { padding: 12px 14px; }
   h1 { font-size: 52px; }
   h2 { font-size: 38px; }
   .hero { gap: 34px; padding-top: 40px; }
