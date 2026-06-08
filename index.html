@@ -3,150 +3,219 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BizDecipher MoonBox | Open Business Opportunity Boxes</title>
-  <meta name="description" content="Open BizDecipher MoonBox for AI creator kits, cash-loop playbooks, founder reports, tool coupons, desk drops, and upgradeable Vault rewards." />
+  <title>MoonBox | Digital Fortune Boxes</title>
+  <meta name="description" content="Open a digital MoonBox for a fortune card, credits, vouchers, gift upgrades, and a Vault-based online opening experience. No cash-out, no buyback, no investment returns." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23141413'/%3E%3Ccircle cx='36' cy='30' r='18' fill='%23c99a45'/%3E%3Ccircle cx='42' cy='26' r='18' fill='%23141413'/%3E%3C/svg%3E" />
   <link rel="stylesheet" href="./css/styles.css" />
 </head>
 <body>
   <div class="grain" aria-hidden="true"></div>
   <div class="ambient ambient-a" aria-hidden="true"></div>
   <div class="ambient ambient-b" aria-hidden="true"></div>
+  <div class="ambient ambient-c" aria-hidden="true"></div>
 
   <header class="site-header">
-    <a class="brand" href="#top" aria-label="BizDecipher MoonBox home">
-      <span class="brand-mark">BD</span>
+    <a class="brand" href="#top" aria-label="MoonBox home">
+      <span class="brand-mark" aria-hidden="true"><span></span></span>
       <span class="brand-copy">
         <strong>MoonBox</strong>
-        <small>Business opportunity boxes</small>
+        <small>Digital fortune boxes</small>
       </span>
     </a>
     <nav class="nav-links" aria-label="Primary navigation">
+      <a href="#daily">Daily Draw</a>
       <a href="#boxes">Boxes</a>
+      <a href="#treasure">Moon Treasure</a>
       <a href="#open">Open</a>
-      <a href="#inside">Inside</a>
       <a href="#vault">Vault</a>
-      <a href="#drops">Live Drops</a>
+      <a href="#rules">Rules</a>
     </nav>
     <div class="header-actions">
-      <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch site language">中文</button>
+      <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch language">中文</button>
       <a class="header-cta" href="#open">Open a Box</a>
     </div>
   </header>
 
   <main id="top">
     <section class="hero section-shell">
-      <div class="hero-copy">
-        <p class="eyebrow">New drop season · 300 boxes</p>
-        <h1>Open a box. Pull a business advantage.</h1>
-        <p class="hero-lead">MoonBox turns the dull hunt for money ideas into a paid opening experience. Pick a theme, open the box, and pull resources you can use immediately: AI tool kits, creator templates, cash-loop playbooks, founder reports, coupons, desk gear, and upgrade cards.</p>
+      <div class="hero-copy reveal-in">
+        <p class="eyebrow">Digital-first MoonBox · no shipping required for most rewards</p>
+        <h1>Open a little luck online.</h1>
+        <p class="hero-lead">MoonBox is a digital fortune box experience. Draw a daily sign for free, open paid digital boxes for credits, vouchers, upgrades, and gift-card style rewards, then keep everything organized inside your Vault.</p>
         <div class="hero-actions">
-          <a class="primary-btn" href="#open">Open the featured box</a>
-          <a class="secondary-btn" href="#inside">See what you can pull</a>
+          <a class="primary-btn" href="#daily">Draw today's luck</a>
+          <a class="secondary-btn" href="#boxes">Choose a digital box</a>
         </div>
         <div class="signal-strip" aria-label="Product signals">
-          <span><strong>Fast reward</strong> Reveal in seconds</span>
-          <span><strong>Useful pulls</strong> Tools, reports, templates</span>
-          <span><strong>Keep going</strong> Save, claim, upgrade</span>
+          <span><strong>Free ritual</strong> Daily draw has no cash value</span>
+          <span><strong>Moon Treasure</strong> Growing gift value, not cash</span>
+          <span><strong>Community Burst</strong> One opener triggers, many Vaults celebrate</span>
         </div>
       </div>
 
-      <div class="hero-machine" aria-label="Featured MoonBox machine">
+      <div class="hero-machine reveal-in" aria-label="MoonBox opening machine">
         <div class="machine-top">
-          <span>Featured now</span>
-          <strong>AI Creator Box</strong>
-          <small>$19.90 · resources for faster content, offers, and monetization</small>
+          <span>Featured flow</span>
+          <strong>Daily sign into digital box</strong>
+          <small>Start with a free ritual. If the user wants more, the paid MoonBox reveal carries the actual digital reward path.</small>
         </div>
-        <div class="box-visual" aria-hidden="true">
-          <div class="box-lid"></div>
-          <div class="box-body">
-            <span>MoonBox</span>
-            <strong>Open</strong>
-          </div>
+        <div class="orbital-stage" aria-hidden="true">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="moon-core"><span>MoonBox</span><strong>Open</strong></div>
         </div>
         <div class="floating-ticket ticket-left">
-          <span>Possible pull</span>
-          <strong>Premium Creator Bundle</strong>
+          <span>Daily free</span>
+          <strong>Fortune reading only</strong>
         </div>
         <div class="floating-ticket ticket-right">
-          <span>Upgrade card</span>
-          <strong>Turn a small pull into a bigger one</strong>
+          <span>Mythic path</span>
+          <strong>Treasure can appear in any paid box</strong>
         </div>
         <div class="machine-footer">
-          <div><span>Boxes left</span><strong id="boxesLeft">247</strong></div>
-          <div><span>Top pull today</span><strong>$149 Founder Bundle</strong></div>
+          <div><span>Current treasure</span><strong id="heroCurrentTreasure">$3,420 prepared</strong></div>
+          <div><span>Full Moon Burst</span><strong id="heroBurstDistance">216 energy away</strong></div>
         </div>
       </div>
     </section>
 
-    <section class="section-shell market-section" id="boxes">
+    <section class="section-shell daily-section" id="daily">
       <div class="section-heading split-heading">
         <div>
-          <p class="eyebrow">Choose your angle</p>
-          <h2>Four boxes. One reason to open: get closer to money.</h2>
+          <p class="eyebrow">Free daily draw</p>
+          <h2>A ritual, not a reward economy.</h2>
         </div>
-        <p>Each box is built around a different urge: create faster, find a cash loop, spot a founder signal, or upgrade the desk that keeps you shipping.</p>
+        <p>Version one gives no redeemable value in the free draw. It focuses on atmosphere, sign reading, shareable wording, and a soft path into paid Digital MoonBox. Value-based free draw can be tested later as an A/B variant.</p>
       </div>
 
-      <div class="box-grid" aria-label="MoonBox marketplace">
-        <article class="box-card selected" data-box-card="creator">
-          <div class="box-card-top">
-            <span class="tag hot">Featured</span>
-            <span class="price">$19.90</span>
+      <div class="daily-layout">
+        <div class="daily-card" aria-live="polite">
+          <div class="daily-card-top">
+            <div>
+              <span id="dailyDate">Today</span>
+              <strong id="dailyTitle">Draw your sign</strong>
+            </div>
+            <div class="daily-moon" aria-hidden="true"></div>
           </div>
-          <h3>AI Creator Box</h3>
-          <p>Prompts, scripts, templates, tool discounts, and creator systems for people trying to turn content into cash.</p>
+          <div class="sign-window" id="signWindow">
+            <div class="sign-symbol" id="signSymbol">Moon</div>
+            <p id="signText">Tap the card to reveal today's message.</p>
+          </div>
+          <button class="open-btn" id="dailyDrawButton" type="button">Draw Today's Luck</button>
+          <div class="daily-note">
+            <strong>No cash value.</strong>
+            <span>The daily draw is a free fortune ritual. It does not grant credits, gift cards, withdrawable balance, or guaranteed rewards.</span>
+          </div>
+        </div>
+
+        <div class="ab-panel">
+          <p class="eyebrow">A/B testing later</p>
+          <h3>Keep the first version clean.</h3>
+          <div class="ab-grid">
+            <article>
+              <span>Variant A now</span>
+              <strong>Ritual-only free draw</strong>
+              <p>Fortune reading, mood, share text, and soft CTA. Lowest abuse risk.</p>
+            </article>
+            <article>
+              <span>Variant B later</span>
+              <strong>Light progress value</strong>
+              <p>Optional cards, streak, or points after traffic is real and abuse controls exist.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell boxes-section" id="boxes">
+      <div class="section-heading split-heading">
+        <div>
+          <p class="eyebrow">Paid digital boxes</p>
+          <h2>Three paid boxes. No warehouse needed.</h2>
+        </div>
+        <p>Paid MoonBoxes deliver digital items first: cards, credits, discount codes, partner vouchers, upgrade tickets, digital gift cards, and optional future physical claim tickets.</p>
+      </div>
+
+      <div class="box-grid" aria-label="Digital MoonBox offers">
+        <article class="box-card selected" data-box-card="starter">
+          <div class="box-card-top">
+            <span class="tag hot">Starter</span>
+            <span class="price">$2.99</span>
+          </div>
+          <h3>Daily Digital Blessing</h3>
+          <p>A low-price paid reveal after the free ritual. Best for testing payment and repeat opens without shipping.</p>
           <ul>
-            <li>Short-video script packs</li>
-            <li>Prompt workflows</li>
-            <li>Tool coupons and launch kits</li>
+            <li>Digital fortune card</li>
+            <li>Small Blessing Credits or discount path</li>
+            <li>Entry-level upgrade chance</li>
           </ul>
-          <button class="select-box-btn" type="button" data-select-box="creator">Select this box</button>
+          <button class="select-box-btn" type="button" data-select-box="starter">Select this box</button>
         </article>
 
-        <article class="box-card" data-box-card="hustle">
+        <article class="box-card" data-box-card="moon">
           <div class="box-card-top">
-            <span class="tag">Cash loop</span>
-            <span class="price">$19.90</span>
+            <span class="tag premium">Main</span>
+            <span class="price">$7.99</span>
           </div>
-          <h3>Side Hustle Box</h3>
-          <p>Small offers, sourcing angles, outreach scripts, and step-by-step playbooks for making the first paid move.</p>
+          <h3>Moon Digital Box</h3>
+          <p>The main online opening experience with better digital gifts, credits, vouchers, and upgrade tickets.</p>
           <ul>
-            <li>Micro-offer builders</li>
-            <li>Channel playbooks</li>
-            <li>Pricing worksheets</li>
+            <li>Blessing Credits</li>
+            <li>Partner voucher or upgrade ticket</li>
+            <li>Small chance of digital gift card</li>
           </ul>
-          <button class="select-box-btn" type="button" data-select-box="hustle">Select this box</button>
+          <button class="select-box-btn" type="button" data-select-box="moon">Select this box</button>
         </article>
 
         <article class="box-card" data-box-card="founder">
           <div class="box-card-top">
-            <span class="tag premium">Premium</span>
-            <span class="price">$29.90</span>
+            <span class="tag founder">Founder</span>
+            <span class="price">$24.99</span>
           </div>
-          <h3>Founder Signal Box</h3>
-          <p>Trend notes, market maps, business teardowns, and rare opportunity reports for people hunting a sharper angle.</p>
+          <h3>Founder Digital Box</h3>
+          <p>For early members who want identity, higher-status digital rewards, and future physical claim priority.</p>
           <ul>
-            <li>Opportunity reports</li>
-            <li>Market signal notes</li>
-            <li>1-on-1 teardown coupons</li>
+            <li>Founder seal digital card</li>
+            <li>Higher credits or voucher path</li>
+            <li>Future physical claim priority</li>
           </ul>
           <button class="select-box-btn" type="button" data-select-box="founder">Select this box</button>
         </article>
+      </div>
+    </section>
 
-        <article class="box-card" data-box-card="desk">
-          <div class="box-card-top">
-            <span class="tag physical">Physical</span>
-            <span class="price">$14.90</span>
+    <section class="section-shell treasure-section" id="treasure">
+      <div class="treasure-panel">
+        <div class="treasure-copy">
+          <p class="eyebrow">Mythic Moon Treasure</p>
+          <h2>A growing gift pool for one big reveal and many small celebrations.</h2>
+          <p>Every paid MoonBox adds gift energy to the current Moon Treasure. If a Mythic Moon Burst appears, the opener receives the largest gift bundle, community Moon Drops release to eligible Vaults, and a seed rolls into the next moon cycle.</p>
+          <div class="treasure-actions">
+            <a class="primary-btn" href="#open">Open a MoonBox</a>
+            <a class="secondary-btn" href="#rules">Read safe rules</a>
           </div>
-          <h3>Desk Setup Box</h3>
-          <p>Useful desk gear, creator stickers, focus cards, wallpapers, and productivity packs that make opening feel real.</p>
-          <ul>
-            <li>Desk accessories</li>
-            <li>Focus templates</li>
-            <li>Creator packs</li>
-          </ul>
-          <button class="select-box-btn" type="button" data-select-box="desk">Select this box</button>
-        </article>
+        </div>
+        <div class="treasure-card" aria-live="polite">
+          <div class="treasure-card-top">
+            <span>Current Moon Treasure</span>
+            <strong id="currentTreasureValue">$3,420 gift value prepared</strong>
+          </div>
+          <div class="treasure-meter" aria-label="Full Moon Burst progress">
+            <div class="treasure-orb"><span id="treasurePercent">86%</span></div>
+            <div class="treasure-progress"><span id="treasureProgressBar"></span></div>
+          </div>
+          <div class="treasure-stats">
+            <div><span>Lifetime generated</span><strong id="lifetimeTreasureValue">$128,420</strong></div>
+            <div><span>Next Burst</span><strong id="burstEnergyLeft">216 energy away</strong></div>
+            <div><span>Split</span><strong>60 / 25 / 15</strong></div>
+          </div>
+          <div class="burst-split">
+            <div><span>Winner main bundle</span><strong>60%</strong></div>
+            <div><span>Community Moon Drops</span><strong>25%</strong></div>
+            <div><span>Next Moon Seed</span><strong>15%</strong></div>
+          </div>
+          <p class="treasure-note">Gift value only. Moon Treasure is not cash, cannot be withdrawn, and is released as Vault gifts, vouchers, credits, upgrades, or future claim paths.</p>
+        </div>
       </div>
     </section>
 
@@ -154,12 +223,12 @@
       <div class="open-layout">
         <div class="open-copy">
           <p class="eyebrow">Opening room</p>
-          <h2>Pay once. Reveal instantly. Decide what to do next.</h2>
-          <p>The product loop is simple: pick a box, open it, get a usable pull, then claim it, save it, or upgrade it into a bigger bundle. The page should make the next open feel close, obvious, and tempting.</p>
+          <h2>Reveal instantly. Save the result. Push the next action.</h2>
+          <p>The paid opening room is the core product. It gives the user a clear reveal, a believable reward category, and immediate choices: save, claim, or use as upgrade fuel. The site never frames this as cash-out.</p>
           <div class="mini-stats">
-            <div><span>Selected</span><strong id="selectedName">AI Creator Box</strong></div>
-            <div><span>Price</span><strong id="selectedPrice">$19.90</strong></div>
-            <div><span>Reveal</span><strong>Instant</strong></div>
+            <div><span>Selected</span><strong id="selectedName">Daily Digital Blessing</strong></div>
+            <div><span>Price</span><strong id="selectedPrice">$2.99</strong></div>
+            <div><span>Delivery</span><strong>Instant</strong></div>
           </div>
         </div>
 
@@ -167,131 +236,174 @@
           <div class="opening-header">
             <div>
               <span id="openingStatus">Ready to open</span>
-              <strong id="openingTitle">AI Creator Box</strong>
+              <strong id="openingTitle">Daily Digital Blessing</strong>
             </div>
             <div class="pulse-dot" aria-hidden="true"></div>
           </div>
 
           <div class="case-window" id="caseWindow">
             <div class="reel" id="reelTrack">
-              <span>Prompt Pack</span>
-              <span>Creator Bundle</span>
-              <span>Tool Coupon</span>
-              <span>Founder Report</span>
-              <span>Upgrade Card</span>
-              <span>Desk Gear</span>
+              <span>Fortune Card</span>
+              <span>Blessing Credits</span>
+              <span>Discount Code</span>
+              <span>Upgrade Ticket</span>
+              <span>Partner Voucher</span>
+              <span>Gift Card Path</span>
             </div>
             <div class="case-pointer" aria-hidden="true"></div>
           </div>
 
-          <button class="open-btn" id="openButton" type="button">Open AI Creator Box</button>
+          <button class="open-btn" id="openButton" type="button">Open Daily Digital Blessing</button>
 
           <div class="result-card hidden" id="resultCard">
             <div class="result-top">
-              <span id="resultTier">Rare pull</span>
-              <strong id="resultValue">$24 value</strong>
+              <span id="resultTier">Digital pull</span>
+              <strong id="resultMeta">Delivered to Vault</strong>
             </div>
-            <h3 id="resultTitle">Creator Tool Pack</h3>
-            <p id="resultDescription">Notion workflow, short-video script pack, and AI tool discount list.</p>
+            <h3 id="resultTitle">Moon Calm Card</h3>
+            <p id="resultDescription">A digital fortune card and a small next-box discount path.</p>
+            <div class="orbit-result" id="orbitResult">
+              <div><span>Seen in the orbit</span><strong id="orbitSeen">Mythic Moon Treasure · Founder Seal · Moon Upgrade Pass</strong></div>
+              <div><span>Moon Treasure grew</span><strong id="treasureGain">+60 Blessing Energy</strong></div>
+              <div><span>Community eligibility</span><strong id="communityEligibility">Entered this cycle</strong></div>
+            </div>
             <div class="result-actions">
-              <button type="button" data-vault-action="claim">Claim now</button>
               <button type="button" data-vault-action="save">Save to Vault</button>
-              <button type="button" data-vault-action="upgrade">Upgrade pull</button>
+              <button type="button" data-vault-action="claim">Claim details</button>
+              <button type="button" data-vault-action="upgrade">Use as upgrade fuel</button>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section-shell inside-section" id="inside">
+    <section class="section-shell pool-section" id="pool">
       <div class="section-heading">
-        <p class="eyebrow">Inside every box</p>
-        <h2>Pull useful rewards you can use today.</h2>
-        <p>Every box reveals practical resources, creator assets, business notes, coupons, or desk items that make the opening feel immediately valuable.</p>
+        <p class="eyebrow">Digital gift pool</p>
+        <h2>What can be inside without shipping.</h2>
+        <p>Everything in the first version should be deliverable by account, email, code, or Vault. Physical gifts remain optional future claims, not the core promise.</p>
       </div>
       <div class="inside-grid">
-        <article>
-          <span>Creator tools</span>
-          <h3>Prompt packs, scripts, workflows</h3>
-          <p>Concrete files a user can open today and use to create, sell, publish, or automate faster.</p>
-        </article>
-        <article>
-          <span>Money angles</span>
-          <h3>Cash-loop playbooks</h3>
-          <p>Small paid offer ideas, channel lists, pricing worksheets, and outreach copy for quick execution.</p>
-        </article>
-        <article>
-          <span>Rare pulls</span>
-          <h3>Reports and teardown coupons</h3>
-          <p>Higher-status rewards that make users want to keep opening, upgrading, and sharing wins.</p>
-        </article>
-        <article>
-          <span>Real-world feel</span>
-          <h3>Desk gear and physical bundles</h3>
-          <p>Small physical rewards make the product feel less abstract and better for social proof.</p>
-        </article>
+        <article><span>Card</span><h3>Digital Fortune Cards</h3><p>Love, Calm, Focus, New Start, Protection, Money Blessing themes. They create ritual and collection without cash value.</p></article>
+        <article><span>Credit</span><h3>Blessing Credits</h3><p>Platform credits for future MoonBox purchases or upgrades. They are not withdrawable and cannot be redeemed for cash.</p></article>
+        <article><span>Voucher</span><h3>Discounts and partner perks</h3><p>Next-box discounts, upgrade tickets, partner coupons, digital assets, templates, and tool perks.</p></article>
+        <article><span>Rare</span><h3>Gift-card style rewards</h3><p>Selected boxes may include digital gift cards or provider vouchers, subject to provider terms and regional availability.</p></article>
+        <article><span>Upgrade</span><h3>Upgrade Tickets</h3><p>Turn a smaller digital pull into a better future opening path, without promising cash or investment value.</p></article>
+        <article><span>Future</span><h3>Physical Claim Ticket</h3><p>Optional later: selected regions may claim physical Moon gifts when fulfillment exists.</p></article>
       </div>
     </section>
 
     <section class="section-shell vault-section" id="vault">
       <div class="vault-panel">
         <div class="vault-copy">
-          <p class="eyebrow">Vault</p>
-          <h2>The reward does not end at reveal.</h2>
-          <p>Vault turns one opening into the next decision. Users can claim useful items, save bigger pulls, upgrade smaller pulls, and keep a visible record of what they have collected.</p>
+          <p class="eyebrow">Gift Vault</p>
+          <h2>The Vault makes digital rewards feel owned.</h2>
+          <p>Without shipping, the Vault becomes the product's weight. It stores cards, credits, vouchers, upgrade tickets, partner codes, and future claim tickets in one visible place.</p>
           <div class="vault-balance">
-            <span>Vault value</span>
-            <strong id="vaultValue">$24</strong>
-            <small id="vaultHint">Creator Tool Pack saved after the first opening.</small>
+            <span>Vault status</span>
+            <strong id="vaultValue">3 saved items</strong>
+            <small id="vaultHint">Open a paid MoonBox to add the next digital item.</small>
           </div>
         </div>
         <div class="vault-list" id="vaultList">
-          <div><span>Saved</span><strong>Creator Tool Pack</strong><em>$24</em></div>
-          <div><span>Ready</span><strong>Next box discount</strong><em>$5</em></div>
-          <div><span>Target</span><strong>Founder Bundle</strong><em>$149</em></div>
+          <div data-label="Saved" data-title="Moon Calm Card"><span>Saved</span><strong>Moon Calm Card</strong><em>Card</em></div>
+          <div data-label="Ready" data-title="Next-box discount path"><span>Ready</span><strong>Next-box discount path</strong><em>Code</em></div>
+          <div data-label="Target" data-title="Founder Seal Digital Card"><span>Target</span><strong>Founder Seal Digital Card</strong><em>Rare</em></div>
         </div>
       </div>
     </section>
 
-    <section class="section-shell psychology-section">
+    <section class="section-shell founder-section" id="founder">
+      <div class="founder-card">
+        <div>
+          <p class="eyebrow">Founder Circle</p>
+          <h2>Identity, early access, and monthly digital drops.</h2>
+          <p>Founder should never be positioned as revenue share or investment. It is an early-member identity layer with discounts, digital seal cards, early access, and future claim priority.</p>
+        </div>
+        <div class="founder-list">
+          <div><span>01</span><strong>Founder Seal Number</strong><p>Limited digital identity card for early members.</p></div>
+          <div><span>02</span><strong>Early Moon Drops</strong><p>Open selected digital drops before the public.</p></div>
+          <div><span>03</span><strong>Future Claim Priority</strong><p>Priority only when physical fulfillment becomes available.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell loop-section">
       <div class="section-heading split-heading">
         <div>
-          <p class="eyebrow">Conversion mechanics</p>
-          <h2>Make the user feel close to the next win.</h2>
+          <p class="eyebrow">System loop</p>
+          <h2>The site needs a full loop, not just a landing page.</h2>
         </div>
-        <p>The site needs a commercial loop, not abstract explanation. Every section pushes one of four impulses: curiosity, urgency, ownership, and upgrade.</p>
+        <p>Every page section should support one action: draw free sign, open paid box, save reward, return later, or understand why the rules are safe.</p>
       </div>
       <div class="loop-grid">
-        <article><span>01</span><h3>Curiosity</h3><p>Visible possible pulls make the user imagine the best outcome before paying.</p></article>
-        <article><span>02</span><h3>Urgency</h3><p>Season boxes, limited counts, and live drops make waiting feel like missing out.</p></article>
-        <article><span>03</span><h3>Ownership</h3><p>Vault makes every pull feel kept, counted, and part of a collection.</p></article>
-        <article><span>04</span><h3>Upgrade</h3><p>Small pulls become fuel toward better bundles, keeping the next action alive.</p></article>
+        <article><span>01</span><h3>Free ritual</h3><p>Daily draw creates habit and atmosphere without giving actual redeemable value in version one.</p></article>
+        <article><span>02</span><h3>Paid reveal</h3><p>Digital MoonBox provides the real reward path: credits, vouchers, upgrades, or gift-card style rewards.</p></article>
+        <article><span>03</span><h3>Moon Treasure grows</h3><p>Every paid opening adds gift energy to the current Moon Treasure and makes the next Full Moon Burst feel closer.</p></article>
+        <article><span>04</span><h3>Gift orbit</h3><p>Premium gifts can appear in the opening orbit as atmosphere and aspiration, without cash-win or prize-pool framing.</p></article>
+        <article><span>05</span><h3>Community Burst</h3><p>When a Mythic Moon Burst appears, the opener gets the main bundle and eligible Vaults receive small Moon Drops.</p></article>
+        <article><span>06</span><h3>Vault ownership</h3><p>Users see what they own and what can be used next, making digital rewards feel concrete.</p></article>
       </div>
     </section>
 
-    <section class="section-shell live-section" id="drops">
+    <section class="section-shell live-section">
       <div class="live-card">
         <div class="live-copy">
-          <p class="eyebrow">Live drops</p>
-          <h2>Other people are opening. That is the pressure.</h2>
-          <p>A live feed makes the product feel active. Users see names, pulls, and values. It creates movement without explaining the machinery.</p>
+          <p class="eyebrow">Live Blessings</p>
+          <h2>Make the product feel active without showing cash.</h2>
+          <p>The feed should show openings, cards, vouchers, upgrades, Moon Treasure growth, and community bursts. It should not show balance-style displays, winnings language, or anything framed as gambling.</p>
         </div>
         <div class="live-feed" id="liveFeed"></div>
       </div>
     </section>
 
+    <section class="section-shell rules-section" id="rules">
+      <div class="section-heading">
+        <p class="eyebrow">Safe rules</p>
+        <h2>Clear boundaries protect the product.</h2>
+        <p>MoonBox should feel magical, but the rules must be concrete. This is a digital entertainment and gift experience, not a cash lottery.</p>
+      </div>
+      <div class="rules-grid">
+        <article><strong>No cash-out</strong><p>Blessing Credits and Luck-themed items have no cash value and cannot be withdrawn.</p></article>
+        <article><strong>No buyback</strong><p>MoonBox does not repurchase gifts, codes, cards, credits, or claim tickets.</p></article>
+        <article><strong>No investment return</strong><p>Founder Circle is membership identity, not revenue share or profit rights.</p></article>
+        <article><strong>Provider terms apply</strong><p>Digital gift cards and partner vouchers follow provider rules and regional restrictions.</p></article>
+        <article><strong>Shipping later</strong><p>Physical gifts may be available only in supported regions after fulfillment is ready.</p></article>
+        <article><strong>Free draw is ritual</strong><p>The daily free draw in version one has no redeemable value. A value-based variant can be A/B tested later.</p></article>
+        <article><strong>Moon Treasure is gifts</strong><p>The growing treasure is prepared gift value only. A Burst releases Vault gifts, vouchers, credits, upgrades, or future claim paths, not cash.</p></article>
+        <article><strong>Community drops are not payouts</strong><p>Eligible users may receive small Moon Drops during a Burst. They are not dividends, betting shares, or cash distributions.</p></article>
+      </div>
+    </section>
+
+    <section class="section-shell faq-section">
+      <div class="faq-layout">
+        <div>
+          <p class="eyebrow">FAQ</p>
+          <h2>Questions the site must answer before launch.</h2>
+        </div>
+        <div class="faq-list">
+          <details open><summary>What is MoonBox?</summary><p>MoonBox is a digital fortune box experience. Users can draw a free daily sign and open paid digital boxes for cards, credits, vouchers, upgrade tickets, partner perks, or gift-card style rewards.</p></details>
+          <details><summary>Does the free daily draw give rewards?</summary><p>In version one, no. It is a free fortune ritual with no redeemable value. This keeps abuse risk low and lets us A/B test value mechanics later.</p></details>
+          <details><summary>Can rewards be exchanged for cash?</summary><p>No. MoonBox does not provide cash-out, buyback, investment returns, or guaranteed cash value. Some digital gifts may be transferable depending on provider terms.</p></details>
+          <details><summary>How does Moon Treasure work?</summary><p>Every paid MoonBox adds gift energy to a growing gift pool. If a Mythic Moon Burst appears, the opener receives the largest gift bundle and eligible Vaults receive small community Moon Drops. It is gift value, not cash.</p></details>
+          <details><summary>Do you ship physical gifts?</summary><p>Not as the first promise. Most rewards are digital. Selected physical gifts may become available later in supported regions.</p></details>
+          <details><summary>What should be built first?</summary><p>Build the homepage, daily draw, paid opening room, Vault, gift pool, Founder page, FAQ, Terms, order success, and account shell before adding complex backend systems.</p></details>
+        </div>
+      </div>
+    </section>
+
     <section class="section-shell final-section">
       <div class="final-card">
-        <p class="eyebrow">Ready</p>
-        <h2>Open the first box. Pull something useful. Then decide if you want to chase the next one.</h2>
-        <a class="primary-btn" href="#open">Open a MoonBox</a>
+        <p class="eyebrow">Build direction locked</p>
+        <h2>Digital-first MoonBox now. Physical gifts later. No cash loop ever.</h2>
+        <a class="primary-btn" href="#daily">Start with the daily ritual</a>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <span>BizDecipher MoonBox</span>
-    <span>Business resources, creator tools, physical drops, and upgradeable Vault rewards.</span>
+    <span>MoonBox Digital</span>
+    <span>Digital fortune cards, credits, vouchers, upgrade paths, and optional future physical claims.</span>
   </footer>
 
   <script src="./js/main.js"></script>
